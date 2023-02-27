@@ -60,7 +60,7 @@ python manage.py migrate
 7. (Optional) Connect to DWR-910 device and run the sms script for sending sms to users:
 
 ```bash
-python manage.py runscript task_notigication
+python manage.py runscript task_notification
 ```
    This will run `scripts/task_notification.py`.
    
@@ -68,4 +68,4 @@ python manage.py runscript task_notigication
 
 - [ ] add SIM800 module
 - [ ] accept request before assigning tasks
-- [ ] international phonenumber check
+- [ ] international phone number check
