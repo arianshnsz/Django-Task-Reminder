@@ -1,6 +1,7 @@
 # Django-Task-Reminder
 
 This project allows users to manage their to-do lists and also set reminders for them.
+
 Users also would be allowed to assign tasks for each other .
 
 ## How to run
@@ -16,20 +17,31 @@ pip install -r requirements.txt
 ```
 
 4. Generate the Django Secrete key:
+
    4.1 Access the Python Interactive Shell:
-   `bash
- django-admin shell
- `
+   
+   ```bash
+   django-admin shell
+   ```
+   
    4.2 Import the `get_random_secret_key()` function from `django.core.management.utils`:
-   `bash
- from django.core.management.utils import get_random_secret_key
- `
+   
+   ```bash
+   from django.core.management.utils import get_random_secret_key
+   ```
+   
    4.3 Generate the Secrete key `using get_random_secret_key()` function:
-   `bash
- get_random_secret_key()
- `
+   
+   ```bash
+   get_random_secret_key()
+   ```
+   
    4.4 In the existing directory, create a file name `.env` and paste the following line inside it:
-   `   SECRET_KEY = '... your generated secret key from part 4 ...'`
+   
+   ```
+   SECRET_KEY = "... your generated secret key from part 4 ..."
+   ```
+   
 5. Install the required packages:
    ```bash
    pip install -r requirements.txt
