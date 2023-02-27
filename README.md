@@ -5,7 +5,7 @@ This is a simple application for managing to-lists.
 Users would be allowed to:
    - Add, Modify, and remove tasks.
    - Assign tasks to other users.
-   - set Reminders for their tasks.
+   - Set Reminders for their tasks.
    
 For notifications, this project uses DWR-910 4G LTE USB Router to send sms to users.
 
@@ -23,7 +23,7 @@ pip install -r requirements.txt # install the required packages
 <details>
 
 <summary> 
-4. Generate the Django Secrete key (click to the steps): 
+4. Generate the Django Secrete key (click to show the steps): 
 </summary>
 
    * Access the Python Interactive Shell:
@@ -68,3 +68,4 @@ pip install -r requirements.txt # install the required packages
 
 - [ ] add SIM800 module
 - [ ] accept request before assigning tasks
+- [ ] international phonenumber check
