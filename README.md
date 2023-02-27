@@ -52,16 +52,16 @@ pip install -r requirements.txt # install the required packages
 </details>
 
 5. Create database tables:
-   ```bash
-   python manage.py migrate
-   ```
+```bash
+python manage.py migrate
+```
 6. Run the project using `python manage.py runserver` and visit the following website.
 
 7. (Optional) Connect to DWR-910 device and run the sms script for sending sms to users:
 
-   ```bash
-   python manage.py runscript task_notigication
-   ```
+```bash
+python manage.py runscript task_notigication
+```
    This will run `scripts/task_notification.py`.
    
 ## TODO
