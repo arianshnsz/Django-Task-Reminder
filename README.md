@@ -3,7 +3,7 @@
 This is a simple application for managing to-lists.
 
 Users would be allowed to:
-   - Add, Modify, and remove tasks.
+   - Add, Modify, Finish, and Remove tasks.
    - Assign tasks to other users.
    - Set Reminders for their tasks.
    
