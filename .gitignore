@@ -137,3 +137,6 @@ local_settings.py
 
 # VsCode
 .vscode
+
+# IDEA
+.idea
