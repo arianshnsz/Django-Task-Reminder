@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% extends 'reminder/base.html' %}
+{% block title %} add task {% endblock title %}
+
+{% block add_task_active %}active{% endblock add_task_active %}
+{% block body %}
+{% load crispy_forms_tags %}
+ <form action="" method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-success">Add</button>
+    </form>
+{% endblock body %}
+

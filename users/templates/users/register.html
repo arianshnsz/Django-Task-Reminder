@@ -1,0 +1,43 @@
+{% extends 'users/base.html' %}
+{% block albums_activate %}register{% endblock albums_activate %}
+{% block title %}Register{% endblock title %}
+{% block body %}
+
+<div class="container"> 
+    {% load crispy_forms_tags %}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+            <div class="form-group col-md-6 col-lg-6 col-xl-7 mb-0">
+                {{ form.username|as_crispy_field}}
+            </div>
+            <div class="form-group col-md-6 col-lg-6 col-xl-5 mb-0">
+                {{ form.phone_number|as_crispy_field}}
+            </div>
+            <div class="form-group col-md-6 col-lg-6 col-xl-5  mb-0">
+                {{ form.first_name|as_crispy_field}}
+            </div>
+            <div class="form-group col-md-6 col-lg-6 col-xl-7 mb-0">
+                {{ form.last_name|as_crispy_field}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-6 col-lg-6 mb-0">
+                {{ form.password1|as_crispy_field}}
+            </div>
+            <div class="form-group col-md-6 col-lg-6 mb-0">
+                {{ form.password2|as_crispy_field}}
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success">Sign up</button>
+
+    </form>
+
+        <small>
+            Already Have an Account?<a href={% url 'login' %}>Sign in</a>
+        </small>
+</div>
+
+{% endblock body%}

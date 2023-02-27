@@ -1,0 +1,139 @@
+{% extends 'reminder/base.html' %} 
+{% block title %} reminder {% endblock title%} 
+{% block style %} 
+.inside{ 
+  height:50vh; 
+  overflow-y: 
+  scroll; 
+} 
+.passed{
+color:#86242A 
+} 
+td{ max-width:5rem; } 
+{% endblock style %} 
+{% block tasks_active%} active {% endblock tasks_active %} 
+{% block body %}
+
+<h4 class="text-center my-3 pb-3">To Do App</h4>
+
+<div class="inside">
+  <table class="table mb-4">
+    <thead>
+      <tr>
+        <th scope="col">No.</th>
+        <th scope="col">Todo item</th>
+        <th scope="col">Status</th>
+        <th scope="col">due date</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    {% if all_tasks%} 
+      {% for task in all_tasks %}
+    <tbody>
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+
+        <td>
+          {% if task.is_finished %}
+          <del>
+            <a href="{% url 'reminder:task_update' task.id %}">
+              {{task.title}}</a
+            >
+          </del>
+          {% elif task.is_assigned%}
+          <a href="{% url 'reminder:task_update' task.id %}">
+            {{task.title}}
+            <p>assigned by {{task.assigned_by.first_name}}</p></a
+          >
+
+          {% else %}
+          <a href="{% url 'reminder:task_update' task.id %}"> {{task.title}}</a>
+
+          {% endif %}
+        </td>
+
+        {% if task.status == "Expired" %}
+        <td class="passed">{{task.status}}</td>
+        {% else %}
+        <td>{{task.status}}</td>
+
+        {% endif %} 
+        {% if task.has_alarm %}
+        <td>{{task.due_date}}</td>
+        {% else %}
+        <td>No due date</td>
+        {% endif %}
+        <td>
+          <form
+            action="{% url 'reminder:task_delete' task.id%}"
+            method="post"
+            style="display: inline"
+          >
+            {% csrf_token %}
+            <button
+              type="submit"
+              class="btn"
+              onclick="return confirm('are you sure?')"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="#D31A38"
+                class="bi bi-trash-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"
+                />
+              </svg>
+            </button>
+          </form>
+          {% if task.has_alarm %}
+          <a
+            href="{% url 'reminder:finish_task' task.id %}"
+            class="btn"
+            onclick="return confirm('you have set an alarm for this task.\nBy setting this task as a is_finished one you will not be is_notified for it.')"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="green"
+              class="bi bi-check-square"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
+              />
+              <path
+                d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z"
+              />
+            </svg>
+          </a>
+          {% else %}
+          <a href="{% url 'reminder:finish_task' task.id %}" class="btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="green"
+              class="bi bi-check-square"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
+              />
+              <path
+                d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z"
+              />
+            </svg>
+          </a>
+          {% endif %}
+        </td>
+      </tr>
+    </tbody>
+    {% endfor %} {% endif %}
+  </table>
+</div>
+{% endblock body %}
