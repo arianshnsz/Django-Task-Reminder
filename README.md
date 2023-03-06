@@ -1,6 +1,6 @@
 # Django Task Reminder
 
-This is a simple application for managing to-lists.
+This is a simple application for managing to-do lists.
 
 Users would be allowed to:
    - Add, Modify, Finish, and Remove tasks.
