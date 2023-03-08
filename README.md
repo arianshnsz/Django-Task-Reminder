@@ -17,7 +17,7 @@ For notifications, this project uses DWR-910 4G LTE USB Router to send sms to us
 ```bash
 git clone https://github.com/arianshnsz/Django-Task-Reminder.git
 python -m venv .venv # create virtual environment called .venv
-source .venv/bin/activate
+source .venv/bin/activate # activate the virtual environment
 pip install -r requirements.txt # install the required packages
 ```
 <details>
