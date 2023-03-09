@@ -55,11 +55,10 @@ pip install -r requirements.txt # install the required packages
 ```bash
 python manage.py migrate
 ```
-6. Run the project using 
+6. Run the project and visit the following website.
 ```bash
 python manage.py runserver
 ```
-and visit the following website.
 
 7. (Optional) Connect to DWR-910 device and run the sms script for sending sms to users:
 
