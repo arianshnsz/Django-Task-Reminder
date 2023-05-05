@@ -23,7 +23,7 @@ pip install -r requirements.txt # install the required packages
 <details>
 
 <summary> 
-4. Generate the Django Secrete key (click to show the steps): 
+3. Generate the Django Secrete key (click to show the steps): 
 </summary>
 
    * Access the Python Interactive Shell:
@@ -51,16 +51,16 @@ pip install -r requirements.txt # install the required packages
    ```
 </details>
 
-5. Create database tables:
+4. Create database tables:
 ```bash
 python manage.py migrate
 ```
-6. Run the project and visit the following website.
+5. Run the project and visit the following website.
 ```bash
 python manage.py runserver
 ```
 
-7. (Optional) Connect to DWR-910 device and run the sms script for sending sms to users:
+6. (Optional) Connect to DWR-910 device and run the sms script for sending sms to users:
 
 ```bash
 python manage.py runscript task_notification
