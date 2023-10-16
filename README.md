@@ -7,7 +7,7 @@ Users would be allowed to:
    - Assign tasks to other users.
    - Set Reminders for their tasks.
    
-For notifications, this project uses DWR-910 4G LTE USB Router to send sms to users.
+For notifications, this project uses DWR-910 4G LTE USB Router to send SMS to users.
 
 ## How to run
 
@@ -16,7 +16,7 @@ For notifications, this project uses DWR-910 4G LTE USB Router to send sms to us
 
 ```bash
 git clone https://github.com/arianshnsz/Django-Task-Reminder.git
-python -m venv .venv # create virtual environment called .venv
+python -m venv .venv # Create a virtual environment called .venv
 source .venv/bin/activate # activate the virtual environment
 pip install -r requirements.txt # install the required packages
 ```
@@ -70,5 +70,5 @@ python manage.py runscript task_notification
 ## TODO
 
 - [ ] add SIM800 module
-- [ ] accept request before assigning tasks
+- [ ] accept requests before assigning tasks
 - [ ] international phone number check
