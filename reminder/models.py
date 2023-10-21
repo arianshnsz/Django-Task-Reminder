@@ -10,9 +10,9 @@ class Task(models.Model):
     is_finished = models.BooleanField(default=False)
     is_notified = models.BooleanField(default=False)
     is_assigned = models.BooleanField(default=False)
-    assigned_by = models.ForeignKey(
+    assigned_by = models.OneToOneField(
         settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, related_name='item_assigned')
-    owner = models.ForeignKey(
+    owner = models.OneToOneField(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='item_created')
 
     class Meta:
